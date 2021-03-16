@@ -47,3 +47,24 @@ function onModalIsClosed (evt) {
     lightbox.classList.remove('is-open');     
 };
 
+const closeModal = document.querySelector('.js-lightbox');
+closeModal.addEventListener('click', closedModalClick);
+
+function closedModalClick (evt) {
+  if (evt.target.classList.contains('lightbox__overlay')) {
+    onModalIsClosed ();
+   };
+  return;
+};
+
+window.addEventListener('keydown', closeModalKey);
+
+function closeModalKey (evt) {
+  evt.preventDefault();
+  if (evt.code === 'Escape') {
+    onModalIsClosed ();
+   };
+  return;
+}
+
+
